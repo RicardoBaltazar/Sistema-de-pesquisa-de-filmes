@@ -10,7 +10,6 @@ class ThemoviedbService
 
     public function searcMoviesByName()
     {
-
         try {
             $client = new \GuzzleHttp\Client();
             $request = $client->get(
@@ -19,7 +18,9 @@ class ThemoviedbService
             );
             $response = $request->getBody();
 
-            return json_decode($response->getContents());
+            $movies = json_decode($response->getContents());
+
+            return $movies;
 
         } catch (\Exception $e) {
             $message = new ApiMessages($e->getMessage());

@@ -5,6 +5,8 @@ namespace App\Services;
 class SearchService
 {
     private $themoviedbService;
+    private array $formattedMovies = [];
+
 
     public function __construct(ThemoviedbService $themoviedbService)
     {
@@ -14,13 +16,18 @@ class SearchService
     public function searchByMovieName(string $name)
     {
         $this->themoviedbService->setMovieName($name);
-
         $movies = $this->themoviedbService->searcMoviesByName();
 
-        return response()->json(
-            [
-                // "title" => $movies['results']['original_title'],
-                "data" => $movies]
-        );
+        foreach ($movies->results as $movie) {
+            $this->formattedMovies[] = [
+                "title" => $movie->original_title,
+                "poster" => $movie->poster_path,
+                "overview" => $movie->overview,
+                "vote_average" => $movie->vote_average,
+                "release_date" => $movie->release_date,
+            ];
+        }
+
+        return response()->json($this->formattedMovies);
     }
 }
