@@ -16,7 +16,7 @@ class SearchService
     public function searchByMovieName(string $name)
     {
         $this->themoviedbService->setMovieName($name);
-        $movies = $this->themoviedbService->searcMoviesByName();
+        $movies = $this->themoviedbService->getMoviesByName();
 
         foreach ($movies->results as $movie) {
             $this->formattedMovies[] = [
@@ -28,6 +28,7 @@ class SearchService
             ];
         }
 
-        return response()->json($this->formattedMovies);
+        // return response()->json($this->formattedMovies);
+        return response()->json($movies);
     }
 }
