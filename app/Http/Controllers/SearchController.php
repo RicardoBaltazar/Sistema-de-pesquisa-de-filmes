@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MovieRequest;
 use App\Services\SearchService;
-use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
@@ -18,6 +17,6 @@ class SearchController extends Controller
     public function show(MovieRequest $request)
     {
         $data = $request->all();
-        return $this->searchService->searchByMovieName($data['name'])
-;    }
+        return $this->searchService->searchByMovieName($data['name']);
+    }
 }

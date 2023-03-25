@@ -18,17 +18,17 @@ class SearchService
         $this->themoviedbService->setMovieName($name);
         $movies = $this->themoviedbService->getMoviesByName();
 
-        foreach ($movies->results as $movie) {
+
+        foreach ($movies['results'] as $movie) {
             $this->formattedMovies[] = [
-                "title" => $movie->original_title,
-                "poster" => $movie->poster_path,
-                "overview" => $movie->overview,
-                "vote_average" => $movie->vote_average,
-                "release_date" => $movie->release_date,
+                "title" => $movie['original_title'],
+                "poster" => $movie['poster_path'],
+                "overview" => $movie['overview'],
+                "vote_average" => $movie['vote_average'],
+                "release_date" => $movie['release_date'],
             ];
         }
 
-        // return response()->json($this->formattedMovies);
-        return response()->json($movies);
+        return response()->json($this->formattedMovies, 200, [], JSON_UNESCAPED_SLASHES);
     }
 }
