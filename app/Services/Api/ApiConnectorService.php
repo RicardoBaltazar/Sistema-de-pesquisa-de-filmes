@@ -2,7 +2,9 @@
 
 namespace App\Services\Api;
 
-class ApiConnectorService
+use App\Interfaces\ApiConnectorInterface;
+
+class ApiConnectorService implements ApiConnectorInterface
 {
     public function call($url)
     {

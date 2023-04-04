@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Api\ApiMessages;
+use App\Interfaces\ApiConnectorInterface;
 use App\Jobs\UpdateMoviesCacheJob;
 use App\Services\Api\ApiConnectorService;
 use Illuminate\Support\Facades\Cache;
@@ -13,7 +14,7 @@ class ThemoviedbService
     private $movieName;
     private $apiConnector;
 
-    public function __construct(ApiConnectorService $apiConnector)
+    public function __construct(ApiConnectorInterface $apiConnector)
     {
         $this->apiConnector = $apiConnector;
     }

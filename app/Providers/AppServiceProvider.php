@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Interfaces\ApiConnectorInterface;
+use App\Services\Api\ApiConnectorService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
+        $this->app->bind(ApiConnectorInterface::class, ApiConnectorService::class);
     }
 
     /**
