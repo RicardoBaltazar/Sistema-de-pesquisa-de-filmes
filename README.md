@@ -18,3 +18,5 @@
 - Meu objetivo com este projeto é praticar conceitos de cache, filas, e solid usando o framework laravel.
 
 - API externa que utilizei no desafio: https://developers.themoviedb.org/3
+
+- O desafio utiliza php 8.1
