@@ -7,25 +7,12 @@
 
 - Exibir resultados da pesquisa.
 
-- Exibir resultados da pesquisa.
-
 - Exibir detalhes do filme selecionado.
 
-- Exibir detalhes do filme selecionado.
+### Sobre o desafio.  
 
+- O sistema armazena a resposta da API externa por 5 horas. Após esse tempo, o cache é atualizado com uma nova pesquisa através de filas.
 
-### Requisitos:
+- Todas as requisições feitas são registradas em logs. Os logs pode ser vistos com laravel telescope.
 
-- A pesquisa deve ser feita através da API do TMDb.
-
-- A busca deve ser feita utilizando a funcionalidade de cache do Laravel, armazenando o resultado por 5 hora.
-
-- A página de resultados deve exibir o nome, o poster e a sinopse de cada filme.
-
-- A página de detalhes deve exibir o nome, o poster, a sinopse, a data de lançamento e a avaliação do filme.
-
-- Todas as requisições feitas à API do TMDb devem ser registradas em logs.
-
-- O sistema deve utilizar filas do Laravel para atualizar o cache de filmes em segundo plano, de forma que o cache seja atualizado em 1 hora.
-
-- O sistema deve utilizar os princípios SOLID para garantir a manutenibilidade e escalabilidade do código.
+- Meu objetivo com este projeto é praticar conceitos de cache, filas, e solid usando o framework laravel.
